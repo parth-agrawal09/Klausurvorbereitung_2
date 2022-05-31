@@ -39,7 +39,7 @@
             </TabItem>
             <TabItem Header="Aufgabe 2">
                 <Grid>
-                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Volumen und Oberfläche einer n-seitigen Pyramide sollen aus Anzahl der Kanten n (n>=3), Länge der Kanten a und Höhe der Pyramide h berechnet werden:" VerticalAlignment="Top" Height="54" Width="312"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Volumen und Oberfläche einer Pyramide mit n-seitiger Grundfläche sollen aus Anzahl der Kanten n (n>=3), Länge der Kanten a und Höhe der Pyramide h berechnet werden:" VerticalAlignment="Top" Height="54" Width="312"/>
                     <TextBlock HorizontalAlignment="Left" Margin="10,162,0,0" TextWrapping="Wrap" Text="Höhe h:" VerticalAlignment="Top" Height="22" Width="115"/>
                     <TextBlock HorizontalAlignment="Left" Margin="10,123,0,0" TextWrapping="Wrap" Text="Kantenlänge a:" VerticalAlignment="Top" Height="23" Width="98"/>
                     <TextBlock HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" Text="Kanten n:" VerticalAlignment="Top" Height="23" Width="115"/>

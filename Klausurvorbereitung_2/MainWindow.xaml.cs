@@ -159,6 +159,9 @@ namespace Klausurvorbereitung_2
             Ag = n * a / 2 * ri;
             V = 1 / 3.0 * Ag * h;
             Ao = Ag + n * 0.5 * a * Math.Sqrt(ri * ri + h * h);
+            //double cot = 1 / Math.Tan(Math.PI / n);
+            //V = n * a * a * h / 12 * cot;
+            //Ao = n * a / 4 * (a * cot + Math.Sqrt(4 * h * h + a * a * cot * cot));
 
             TB_Ausgabe.Text = $"Oberflächeninhalt = {Math.Round(Ao,2)}\n Volumen = {Math.Round(V,2)}";
         }
