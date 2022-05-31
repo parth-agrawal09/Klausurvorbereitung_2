@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,12 +21,12 @@ namespace Klausurvorbereitung_2
     /// </summary>
     public partial class MainWindow : Window
     {
-        int N = 2, count=0;
+        int N = 2, count = 0;
         Rectangle[] RR;
         Ellipse[] CC;
         bool R_an = true;
         bool C_an = true;
-        double h1=0, h2=0, h3=0;
+        double h1 = 0, h2 = 0, h3 = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -77,20 +78,21 @@ namespace Klausurvorbereitung_2
                 }
             }
 
+            
 
         }
 
         private void Btn_R_Click(object sender, RoutedEventArgs e)
         {
-            if (R_an) for (int i = 0; i < N; i++) RR[i].Visibility = Visibility.Visible;            
-            else      for (int i = 0; i < N; i++) RR[i].Visibility = Visibility.Hidden;
+            if (R_an) for (int i = 0; i < N; i++) RR[i].Visibility = Visibility.Visible;
+            else for (int i = 0; i < N; i++) RR[i].Visibility = Visibility.Hidden;
             R_an = !R_an;
         }
 
         private void Btn_C_Click(object sender, RoutedEventArgs e)
         {
             if (C_an) for (int i = 0; i < N; i++) CC[i].Visibility = Visibility.Visible;
-            else      for (int i = 0; i < N; i++) CC[i].Visibility = Visibility.Hidden;
+            else for (int i = 0; i < N; i++) CC[i].Visibility = Visibility.Hidden;
             C_an = !C_an;
         }
 
@@ -123,10 +125,31 @@ namespace Klausurvorbereitung_2
             }
         }
 
+        private void ZahlenEingabePrüfungD(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !Regex.IsMatch(e.Text, @"^[+-]?[0-9]*(\,|\.)?[0-9]+$");
+        }
+
+        private void Btn_CM_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Canvas.SetLeft(Btn_CM, Canvas.GetLeft(Btn_CM) + Btn_CM.ActualWidth);
+        }
+
+        private void ZahlenEingabePrüfungI(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !Regex.IsMatch(e.Text, "^[+-]?[0-9]*$");
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             double a, h;
             int n;
+            if (TB_n.Text == "" || TB_a.Text == "" || TB_h.Text == "" ) return;
+            if (Convert.ToInt32(TB_n.Text) < 3)
+            {
+                MessageBox.Show("n muss größer als 2 und eine ganze Zahl sein.", "Fehler");
+                return;
+            }
             n = Convert.ToInt32(TB_n.Text);
             a = Convert.ToDouble(TB_a.Text);
             h = Convert.ToDouble(TB_h.Text);
@@ -135,9 +158,9 @@ namespace Klausurvorbereitung_2
             ri = a / 2 * 1 / Math.Tan(Math.PI / n);
             Ag = n * a / 2 * ri;
             V = 1 / 3.0 * Ag * h;
-            Ao = Ag + n*0.5*a*Math.Sqrt(ri*ri+h*h);
+            Ao = Ag + n * 0.5 * a * Math.Sqrt(ri * ri + h * h);
 
-            TB_Ausgabe.Text = "Oberflächeninhalt = "+ Ao +"\n Volumen = " + V;
+            TB_Ausgabe.Text = "Oberflächeninhalt = " + Ao + "\n Volumen = " + V;
         }
 
         private void Btn_W_Click(object sender, RoutedEventArgs e)
@@ -145,8 +168,8 @@ namespace Klausurvorbereitung_2
             string Ausgabe;
             Random rng = new Random();
             for (int i = 0; i < 1000; i++)
-            {                
-                count++;                
+            {
+                count++;
                 double y = rng.NextDouble();
                 if (y <= 0.1)
                 {
@@ -162,7 +185,7 @@ namespace Klausurvorbereitung_2
                 {
                     TB_Z.Text = "3";
                     h3++;
-                }                
+                }
             }
             Ausgabe = "h_1 = " + Math.Round(h1 / count, 3) + "\nh_2 = " + Math.Round(h2 / count, 3) + "\nh_3 = " + Math.Round(h3 / count, 3);
             TB_H.Text = Ausgabe;

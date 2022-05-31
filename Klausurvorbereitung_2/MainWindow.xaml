@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Klausurvorbereitung_2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="900">
+        Title="Klausurvorbereitung" Height="500" Width="900">
     <Grid>
         <TabControl>
             <TabItem Header="Aufgabe 1">
@@ -39,13 +39,13 @@
             </TabItem>
             <TabItem Header="Aufgabe 2">
                 <Grid>
-                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Volumen und Oberfläche einer n-seitugen Pyramide sollen aus Anzahl der Kanten n, Länge der Kanten a und Höhe der Pyramide h berechnet werden:" VerticalAlignment="Top" Height="54" Width="312"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Volumen und Oberfläche einer n-seitigen Pyramide sollen aus Anzahl der Kanten n (n>=3), Länge der Kanten a und Höhe der Pyramide h berechnet werden:" VerticalAlignment="Top" Height="54" Width="312"/>
                     <TextBlock HorizontalAlignment="Left" Margin="10,162,0,0" TextWrapping="Wrap" Text="Höhe h:" VerticalAlignment="Top" Height="22" Width="115"/>
                     <TextBlock HorizontalAlignment="Left" Margin="10,123,0,0" TextWrapping="Wrap" Text="Kantenlänge a:" VerticalAlignment="Top" Height="23" Width="98"/>
                     <TextBlock HorizontalAlignment="Left" Margin="10,81,0,0" TextWrapping="Wrap" Text="Kanten n:" VerticalAlignment="Top" Height="23" Width="115"/>
-                    <TextBox x:Name="TB_h" HorizontalAlignment="Left" Height="23" Margin="130,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name="TB_a" HorizontalAlignment="Left" Height="23" Margin="130,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name="TB_n" HorizontalAlignment="Left" Height="23" Margin="130,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="TB_h" HorizontalAlignment="Left" Height="23" Margin="130,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="ZahlenEingabePrüfungD"/>
+                    <TextBox x:Name="TB_a" HorizontalAlignment="Left" Height="23" Margin="130,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="ZahlenEingabePrüfungD"/>
+                    <TextBox x:Name="TB_n" HorizontalAlignment="Left" Height="23" Margin="130,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="ZahlenEingabePrüfungI"/>
                     <TextBlock x:Name="TB_Ausgabe" HorizontalAlignment="Left" Margin="308,123,0,0" TextWrapping="Wrap" Background="Bisque" Text="" VerticalAlignment="Top" Height="61" Width="161"/>
                     <Button x:Name="Btn_Berechnen" Content="Berechnen" HorizontalAlignment="Left" Margin="308,95,0,0" VerticalAlignment="Top" Width="161" Click="Button_Click"/>
                 </Grid>
@@ -56,10 +56,13 @@
                     <Button x:Name="Btn_W" Content="Würfeln" HorizontalAlignment="Left" Margin="261,165,0,0" VerticalAlignment="Top" Width="91" Click="Btn_W_Click"/>
                     <TextBlock x:Name="TB_Z" Text="" HorizontalAlignment="Left" Margin="261,135,0,0" VerticalAlignment="Top" Height="30" Width="91" FontWeight="Bold" FontSize="20" TextAlignment="Center"/>
                     <TextBlock x:Name="TB_H" HorizontalAlignment="Left" Background="Bisque" Margin="497,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="113" Width="151"/>
-
                 </Grid>
             </TabItem>
-            
+            <TabItem Header="Aufgabe 4">
+                <Canvas x:Name="Zeichenfläche">
+                    <Button x:Name="Btn_CM" Content="Klick mich!" Canvas.Left="109" Canvas.Top="187" MouseEnter="Btn_CM_MouseEnter"/>
+                </Canvas>
+            </TabItem>
         </TabControl>
 
     </Grid>
