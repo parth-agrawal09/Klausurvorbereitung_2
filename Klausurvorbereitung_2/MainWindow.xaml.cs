@@ -160,7 +160,7 @@ namespace Klausurvorbereitung_2
             V = 1 / 3.0 * Ag * h;
             Ao = Ag + n * 0.5 * a * Math.Sqrt(ri * ri + h * h);
 
-            TB_Ausgabe.Text = "Oberflächeninhalt = " + Ao + "\n Volumen = " + V;
+            TB_Ausgabe.Text = $"Oberflächeninhalt = {Math.Round(Ao,2)}\n Volumen = {Math.Round(V,2)}";
         }
 
         private void Btn_W_Click(object sender, RoutedEventArgs e)
